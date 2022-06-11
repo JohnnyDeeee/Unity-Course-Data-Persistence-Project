@@ -87,7 +87,13 @@ public class MainManager : MonoBehaviour
 
     private void UpdateHighScoreText()
     {
-        MenuManager.HighScoreDataStructure highScoreData = MenuManager.Instance.AllHighScores[0];
-        HighScoreText.text = "Best Score: " + highScoreData.Playername + " : " + highScoreData.HighScore;
+        if (MenuManager.Instance.AllHighScores.Count > 0)
+        {
+            MenuManager.HighScoreDataStructure highScoreData = MenuManager.Instance.AllHighScores[0];
+            HighScoreText.text = "Best Score: " + highScoreData.Playername + " : " + highScoreData.HighScore;
+        } else
+        {
+            HighScoreText.text = "There is no highscore yet, make it a hard one!";
+        }
     }
 }

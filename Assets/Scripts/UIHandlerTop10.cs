@@ -22,8 +22,9 @@ public class UIHandlerTop10 : MonoBehaviour
         {
             MenuManager.Instance.AllHighScores.ForEach(x =>
             {
+                int position = MenuManager.Instance.AllHighScores.IndexOf(x) + 1;
                 GameObject gameObject = Instantiate(HighScorePrefab, HighScorePanel.transform);
-                gameObject.GetComponent<Text>().text = x.Playername + " : " + x.HighScore;
+                gameObject.GetComponent<Text>().text = $"{position}. {x.Playername}:{x.HighScore}";
             });
         }
     }
